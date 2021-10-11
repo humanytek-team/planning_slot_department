@@ -27,14 +27,16 @@ class PlanningSlot(models.Model):
     def create(self, vals_list):
         dicts = []
         for vals in vals_list:
-            employee_ids = vals.pop('employee_ids', [])
+            employee_ids = vals.pop("employee_ids", [])
             if not employee_ids:
                 dicts.append(vals)
                 continue
             real_employee_id = vals.pop("employee_id", None)
-            real_employee_id = real_employee_id and [real_employee_id] or []
-            dicts.extend([
-                {**vals, "employee_id": employee_id}
-                for employee_id in set(employee_ids[0][2] + real_employee_id) # Get IDS
-            ])
+            real_employee_id = real_employee_id and [real_employee_id] or [False]
+            dicts.extend(
+                [
+                    {**vals, "employee_id": employee_id}
+                    for employee_id in set(employee_ids[0][2] + real_employee_id)  # Get IDS
+                ]
+            )
         return super(PlanningSlot, self).create(dicts)[0]
