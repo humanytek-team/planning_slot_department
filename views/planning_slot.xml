@@ -15,6 +15,23 @@
         </field>
     </record>
 
+    <record id="planning_view_gantt" model="ir.ui.view">
+        <field name="name">planning.slot.gantt.department</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_view_gantt"/>
+        <field name="arch" type="xml">
+            <field name="allocated_percentage" position="after">
+                <field name="task_name"/>
+            </field>
+            <li id="allocated_hours" position="after">
+                <li id="task">
+                    <strong>Task: </strong>
+                    <t t-esc="task_name"/>
+                </li>
+            </li>
+        </field>
+    </record>
+
     <record id="planning_view_search" model="ir.ui.view">
         <field name="name">planning.slot.search.department</field>
         <field name="model">planning.slot</field>

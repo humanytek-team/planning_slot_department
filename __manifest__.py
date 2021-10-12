@@ -5,6 +5,7 @@
     "website": "http://humanytek.com",
     "depends": [
         "planning",
+        "project_forecast",
     ],
     "data": [
         "views/planning_slot.xml",
