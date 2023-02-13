@@ -1,48 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="planning_view_form" model="ir.ui.view">
-        <field name="name">planning.slot.form.department</field>
-        <field name="model">planning.slot</field>
-        <field name="inherit_id" ref="planning.planning_view_form"/>
-        <field name="arch" type="xml">
-            <field name="employee_id" position="after">
-                <field name="add_department_id"/>
-                <field name="employee_ids" widget="many2many_tags"/>
-            </field>
-            <!-- <field name="employee_id" position="attributes">
+  <record id="planning_view_form" model="ir.ui.view">
+    <field name="name">planning.slot.form.department</field>
+    <field name="model">planning.slot</field>
+    <field name="inherit_id" ref="planning.planning_view_form"/>
+    <field name="arch" type="xml">
+      <field name="employee_id" position="after">
+        <field name="add_department_id"/>
+        <field name="employee_ids" widget="many2many_tags"/>
+      </field>
+      <!-- <field name="employee_id" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field> -->
-        </field>
-    </record>
+    </field>
+  </record>
 
-    <record id="planning_view_gantt" model="ir.ui.view">
-        <field name="name">planning.slot.gantt.department</field>
-        <field name="model">planning.slot</field>
-        <field name="inherit_id" ref="planning.planning_view_gantt"/>
-        <field name="arch" type="xml">
-            <field name="allocated_percentage" position="after">
-                <field name="task_name"/>
-            </field>
-            <li id="allocated_hours" position="after">
-                <li id="task">
-                    <strong>Task: </strong>
-                    <t t-esc="task_name"/>
-                </li>
-            </li>
-        </field>
-    </record>
+  <record id="planning_view_gantt" model="ir.ui.view">
+    <field name="name">planning.slot.gantt.department</field>
+    <field name="model">planning.slot</field>
+    <field name="inherit_id" ref="planning.planning_view_gantt"/>
+    <field name="arch" type="xml">
+      <field name="allocated_percentage" position="after">
+        <field name="task_name"/>
+      </field>
+      <div id="allocated_hours" position="after">
+        <li id="task">
+          <strong>Task: </strong>
+          <t t-esc="task_name"/>
+        </li>
+      </div>
+    </field>
+  </record>
 
-    <record id="planning_view_search" model="ir.ui.view">
-        <field name="name">planning.slot.search.department</field>
-        <field name="model">planning.slot</field>
-        <field name="inherit_id" ref="planning.planning_view_search"/>
-        <field name="arch" type="xml">
-            <field name="employee_id" position="after">
-                <field name="department_id"/>
-            </field>
-            <group position="inside">
-                <filter name="group_by_department" string="Department" context="{'group_by': 'department_id'}"/>
-            </group>
-        </field>
-    </record>
+  <record id="planning_view_search" model="ir.ui.view">
+    <field name="name">planning.slot.search.department</field>
+    <field name="model">planning.slot</field>
+    <field name="inherit_id" ref="planning.planning_view_search"/>
+    <field name="arch" type="xml">
+      <field name="role_id" position="after">
+        <field name="department_id"/>
+      </field>
+      <group position="inside">
+        <filter name="group_by_department" string="Department"
+          context="{'group_by': 'department_id'}"/>
+      </group>
+    </field>
+  </record>
 </odoo>
