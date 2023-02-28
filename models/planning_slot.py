@@ -35,11 +35,11 @@ class PlanningSlot(models.Model):
                 dicts.append(vals)
                 continue
             real_employee_id = vals.pop("employee_id", None)
-            real_employee_id = real_employee_id and [real_employee_id] or [False]
+            real_employee_id = [real_employee_id] if real_employee_id else [False]
             dicts.extend(
                 [
                     {**vals, "employee_id": employee_id}
                     for employee_id in set(employee_ids[0][2] + real_employee_id)  # Get IDS
                 ]
             )
-        return super(PlanningSlot, self).create(dicts)[0]
+        return super(PlanningSlot, self).create(dicts)
