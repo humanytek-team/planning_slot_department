@@ -15,9 +15,9 @@ class PlanningSlot(models.Model):
         string="Extra Employees",
         comodel_name="hr.employee",
     )
-    task_name = fields.Char(
-        related="task_id.name",
-    )
+    # task_name = fields.Char(
+    #    related="task_id.name",
+    # )
 
     @api.onchange("add_department_id")
     def _generate_employee_ids(self):
@@ -39,7 +39,9 @@ class PlanningSlot(models.Model):
             dicts.extend(
                 [
                     {**vals, "employee_id": employee_id}
-                    for employee_id in set(employee_ids[0][2] + real_employee_id)  # Get IDS
+                    for employee_id in set(
+                        employee_ids[0][2] + real_employee_id
+                    )  # Get IDS
                 ]
             )
         return super(PlanningSlot, self).create(dicts)[0]

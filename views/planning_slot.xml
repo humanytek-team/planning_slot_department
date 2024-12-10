@@ -15,7 +15,7 @@
         </field>
     </record>
 
-    <record id="planning_view_gantt" model="ir.ui.view">
+    <!--record id="planning_view_gantt" model="ir.ui.view">
         <field name="name">planning.slot.gantt.department</field>
         <field name="model">planning.slot</field>
         <field name="inherit_id" ref="planning.planning_view_gantt"/>
@@ -30,7 +30,7 @@
                 </li>
             </li>
         </field>
-    </record>
+    </record-->
 
     <record id="planning_view_search" model="ir.ui.view">
         <field name="name">planning.slot.search.department</field>
