@@ -10,4 +10,5 @@
     "data": [
         "views/planning_slot.xml",
     ],
+    "installable": False,
 }
