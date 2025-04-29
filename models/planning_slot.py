@@ -39,7 +39,9 @@ class PlanningSlot(models.Model):
             dicts.extend(
                 [
                     {**vals, "employee_id": employee_id}
-                    for employee_id in set(employee_ids[0][2] + real_employee_id)  # Get IDS
+                    for employee_id in set(
+                        employee_ids[0][2] + real_employee_id
+                    )  # Get IDS
                 ]
             )
         return super(PlanningSlot, self).create(dicts)
