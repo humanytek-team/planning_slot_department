@@ -15,7 +15,8 @@
     </field>
   </record>
 
-  <record id="planning_view_gantt" model="ir.ui.view">
+  <!-- TODO MIG 18 -->
+  <!-- <record id="planning_view_gantt" model="ir.ui.view">
     <field name="name">planning.slot.gantt.department</field>
     <field name="model">planning.slot</field>
     <field name="inherit_id" ref="planning.planning_view_gantt"/>
@@ -30,7 +31,7 @@
         </li>
       </div>
     </field>
-  </record>
+  </record> -->
 
   <record id="planning_view_search" model="ir.ui.view">
     <field name="name">planning.slot.search.department</field>
@@ -41,8 +42,7 @@
         <field name="department_id"/>
       </field>
       <group position="inside">
-        <filter name="group_by_department" string="Department"
-          context="{'group_by': 'department_id'}"/>
+        <filter name="group_by_department" string="Department" context="{'group_by': 'department_id'}"/>
       </group>
     </field>
   </record>

@@ -10,6 +10,5 @@
     "data": [
         "views/planning_slot.xml",
     ],
-    "installable": False,
     "license": "AGPL-3",
 }

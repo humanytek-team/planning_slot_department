@@ -15,9 +15,10 @@ class PlanningSlot(models.Model):
         string="Extra Employees",
         comodel_name="hr.employee",
     )
-    task_name = fields.Char(
-        related="task_id.name",
-    )
+    # TODO MIG 18
+    # task_name = fields.Char(
+    #     related="task_id.name",
+    # )
 
     @api.onchange("add_department_id")
     def _generate_employee_ids(self):
